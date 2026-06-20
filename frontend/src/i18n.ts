@@ -1,0 +1,76 @@
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+
+const resources = {
+  zh: {
+    translation: {
+      page_title: "主权升级地图",
+      sovereignty_status: "主权状态",
+      sov_upgrades: "主权升级",
+      sov_search_region: "按星域查询",
+      sov_search_constellation: "按星座查询",
+      system_name: "星系",
+      security: "安全等级",
+      adm_val: "ADM",
+      loading_map: "加载星图数据...",
+      loading_sov: "加载主权数据...",
+      error_loading: "加载失败",
+      highsec: "高安",
+      lowsec: "低安",
+      nullsec: "零安",
+      system: "星系",
+      upgrades: "升级插件",
+      legend: "图例",
+      adm_highest: "5.0 ADM (最高)",
+      adm_lowest: "1.0 ADM (最低)",
+      no_sov_data: "无主权数据",
+      zoom_in: "放大",
+      zoom_out: "缩小",
+      reset_view: "重置视图",
+      lang: "语言",
+      search_placeholder: "输入星系名称搜索...",
+      search_no_results: "未找到匹配的星系",
+      sec: "安等",
+    },
+  },
+  en: {
+    translation: {
+      page_title: "Sovereignty Upgrade Map",
+      sovereignty_status: "Sovereignty Status",
+      sov_upgrades: "Upgrades",
+      sov_search_region: "Region Filter",
+      sov_search_constellation: "Constellation Filter",
+      system_name: "System",
+      security: "Security",
+      adm_val: "ADM",
+      loading_map: "Loading starmap data...",
+      loading_sov: "Loading sovereignty data...",
+      error_loading: "Loading failed",
+      highsec: "Highsec",
+      lowsec: "Lowsec",
+      nullsec: "Nullsec",
+      system: "System",
+      upgrades: "Upgrades",
+      legend: "Legend",
+      adm_highest: "5.0 ADM (Highest)",
+      adm_lowest: "1.0 ADM (Lowest)",
+      no_sov_data: "No Sovereignty Data",
+      zoom_in: "Zoom In",
+      zoom_out: "Zoom Out",
+      reset_view: "Reset View",
+      lang: "Language",
+      search_placeholder: "Search system name...",
+      search_no_results: "No matching systems found",
+      sec: "Sec",
+    },
+  },
+};
+
+i18n.use(initReactI18next).init({
+  resources,
+  lng: "zh",
+  fallbackLng: "zh",
+  interpolation: { escapeValue: false },
+});
+
+export default i18n;

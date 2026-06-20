@@ -1,0 +1,8 @@
+onlyBuiltDependencies:
+  - esbuild
+  - "@vitejs/plugin-react"
+
+packages:
+  - "."
+
+minimumReleaseAge: "7 days"

@@ -1,0 +1,20 @@
+# Go
+backend/sov-upgrade-map
+backend/sov-upgrade-map.upx
+backend/.env
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

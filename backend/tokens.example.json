@@ -1,0 +1,9 @@
+[
+  {
+    "name": "example-direct-token",
+    "access_token": "paste-short-lived-access-token-here",
+    "refresh_token": "optional-refresh-token",
+    "client_id": "optional-client-id",
+    "client_secret": "optional-client-secret"
+  }
+]

@@ -1,76 +1,86 @@
 import i18n from "i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
+import en from "./locales/en.json";
+import zh from "./locales/zh.json";
+import sdeEn from "./sde/sde.en.json";
+import sdeZh from "./sde/sde.zh.json";
 
-const resources = {
-  zh: {
-    translation: {
-      page_title: "主权升级地图",
-      sovereignty_status: "主权状态",
-      sov_upgrades: "主权升级",
-      sov_search_region: "按星域查询",
-      sov_search_constellation: "按星座查询",
-      system_name: "星系",
-      security: "安全等级",
-      adm_val: "ADM",
-      loading_map: "加载星图数据...",
-      loading_sov: "加载主权数据...",
-      error_loading: "加载失败",
-      highsec: "高安",
-      lowsec: "低安",
-      nullsec: "零安",
-      system: "星系",
-      upgrades: "升级插件",
-      legend: "图例",
-      adm_highest: "5.0 ADM (最高)",
-      adm_lowest: "1.0 ADM (最低)",
-      no_sov_data: "无主权数据",
-      zoom_in: "放大",
-      zoom_out: "缩小",
-      reset_view: "重置视图",
-      lang: "语言",
-      search_placeholder: "输入星系名称搜索...",
-      search_no_results: "未找到匹配的星系",
-      sec: "安等",
-    },
-  },
-  en: {
-    translation: {
-      page_title: "Sovereignty Upgrade Map",
-      sovereignty_status: "Sovereignty Status",
-      sov_upgrades: "Upgrades",
-      sov_search_region: "Region Filter",
-      sov_search_constellation: "Constellation Filter",
-      system_name: "System",
-      security: "Security",
-      adm_val: "ADM",
-      loading_map: "Loading starmap data...",
-      loading_sov: "Loading sovereignty data...",
-      error_loading: "Loading failed",
-      highsec: "Highsec",
-      lowsec: "Lowsec",
-      nullsec: "Nullsec",
-      system: "System",
-      upgrades: "Upgrades",
-      legend: "Legend",
-      adm_highest: "5.0 ADM (Highest)",
-      adm_lowest: "1.0 ADM (Lowest)",
-      no_sov_data: "No Sovereignty Data",
-      zoom_in: "Zoom In",
-      zoom_out: "Zoom Out",
-      reset_view: "Reset View",
-      lang: "Language",
-      search_placeholder: "Search system name...",
-      search_no_results: "No matching systems found",
-      sec: "Sec",
-    },
-  },
-};
+export const SUPPORTED_LANGUAGES = ["en", "zh"] as const;
+export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 
-i18n.use(initReactI18next).init({
-  resources,
-  lng: "zh",
-  fallbackLng: "zh",
-  interpolation: { escapeValue: false },
-});
+export const LANGUAGE_STORAGE_KEY = "sovUpgradeMapLang";
+
+export const i18nReady = i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    fallbackLng: "en",
+    supportedLngs: SUPPORTED_LANGUAGES,
+    nonExplicitSupportedLngs: true,
+    defaultNS: "translation",
+    ns: ["translation", "sde"],
+    resources: {
+      en: {
+        translation: en,
+        sde: sdeEn,
+      },
+      zh: {
+        translation: zh,
+        sde: sdeZh,
+      },
+    },
+    detection: {
+      order: ["localStorage", "navigator"],
+      lookupLocalStorage: LANGUAGE_STORAGE_KEY,
+      caches: ["localStorage"],
+    },
+    interpolation: { escapeValue: false },
+  });
+
+export function displayLanguage(): SupportedLanguage {
+  return i18n.language?.startsWith("zh") ? "zh" : "en";
+}
+
+export async function changeLanguage(language: SupportedLanguage) {
+  await i18n.changeLanguage(language);
+}
+
+function translateSde(
+  category: "region" | "system" | "type",
+  value: string | number | undefined,
+): string {
+  const key = value === undefined || value === "" ? i18n.t("common.unknown") : String(value);
+  return i18n.t(`${category}.${key}`, { ns: "sde", defaultValue: key });
+}
+
+export function translateRegion(value: string | number | undefined): string {
+  return translateSde("region", value);
+}
+
+export function translateSystem(value: string | number | undefined): string {
+  return translateSde("system", value);
+}
+
+export function translateType(value: string | number | undefined): string {
+  return translateSde("type", value);
+}
+
+export function translatePowerState(value: string | undefined): string {
+  switch (value) {
+    case "Online":
+      return i18n.t("details.online");
+    case "Offline":
+      return i18n.t("details.offline");
+    case "Low":
+      return i18n.t("details.low");
+    case "Pending":
+      return i18n.t("details.pending");
+    case "Unspecified":
+      return i18n.t("common.unknown");
+    default:
+      return value || i18n.t("common.unknown");
+  }
+}
 
 export default i18n;

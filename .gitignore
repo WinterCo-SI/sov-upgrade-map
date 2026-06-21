@@ -3,6 +3,8 @@ backend/sov-upgrade-map
 backend/sov-upgrade-map.upx
 backend/.env
 
+backend/target
+
 # Frontend
 frontend/node_modules/
 frontend/dist/

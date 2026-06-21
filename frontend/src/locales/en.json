@@ -1,0 +1,68 @@
+{
+  "app": {
+    "title": "Sovereignty Upgrade Map",
+    "description": "EVE Online sovereignty upgrade map"
+  },
+  "common": {
+    "unknown": "Unknown",
+    "none": "None",
+    "notAvailable": "N/A",
+    "languageChinese": "中文",
+    "languageEnglish": "EN"
+  },
+  "console": {
+    "sovereigntyStatus": "Sovereignty Status",
+    "sovereigntyConsole": "SOVEREIGNTY CONSOLE",
+    "regionFilter": "Region Filter",
+    "constellationFilter": "Constellation Filter",
+    "selectRegion": "Select Region...",
+    "selectConstellation": "Select Constellation...",
+    "expandConsole": "Expand Console"
+  },
+  "table": {
+    "system": "System",
+    "security": "Sec",
+    "adm": "ADM",
+    "development": "Dev",
+    "capital": "Cap",
+    "skyhooks": "Skyhooks",
+    "resources": "Resources",
+    "upgrades": "Upgrades"
+  },
+  "map": {
+    "resetView": "Reset View",
+    "legend": "Legend",
+    "admHighest": "5.0+ ADM",
+    "admLowest": "1.0 ADM",
+    "capitalSystem": "Capital system",
+    "raidableSkyhook": "Raidable skyhook",
+    "noSovereigntyData": "No sovereignty data",
+    "loading": "Loading starmap data..."
+  },
+  "status": {
+    "loadingSovereignty": "Loading sovereignty data...",
+    "mapDatasetError": "Map dataset error",
+    "loadFailed": "Loading failed"
+  },
+  "details": {
+    "military": "Mil",
+    "industrial": "Ind",
+    "strategic": "Strat",
+    "power": "PWR",
+    "powerUnit": "P",
+    "workforce": "WF",
+    "reagents": "Reagents",
+    "workforceTransport": "Transport",
+    "vulnerability": "Vuln",
+    "theft": "Theft",
+    "configured": "Cfg",
+    "current": "Now",
+    "import": "Import",
+    "export": "Export",
+    "transit": "Transit",
+    "online": "Online",
+    "offline": "Offline",
+    "low": "Low",
+    "pending": "Pending"
+  }
+}

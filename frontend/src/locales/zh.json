@@ -1,0 +1,68 @@
+{
+  "app": {
+    "title": "主权升级地图",
+    "description": "EVE Online 主权升级地图"
+  },
+  "common": {
+    "unknown": "未知",
+    "none": "无",
+    "notAvailable": "无",
+    "languageChinese": "中文",
+    "languageEnglish": "EN"
+  },
+  "console": {
+    "sovereigntyStatus": "主权状态",
+    "sovereigntyConsole": "主权控制台",
+    "regionFilter": "按星域查询",
+    "constellationFilter": "按星座查询",
+    "selectRegion": "选择星域...",
+    "selectConstellation": "选择星座...",
+    "expandConsole": "展开控制面板"
+  },
+  "table": {
+    "system": "星系",
+    "security": "安等",
+    "adm": "ADM",
+    "development": "发展",
+    "capital": "首都",
+    "skyhooks": "天钩",
+    "resources": "资源",
+    "upgrades": "升级插件"
+  },
+  "map": {
+    "resetView": "重置视图",
+    "legend": "图例",
+    "admHighest": "5.0+ ADM",
+    "admLowest": "1.0 ADM",
+    "capitalSystem": "首都星系",
+    "raidableSkyhook": "可劫掠天钩",
+    "noSovereigntyData": "无主权数据",
+    "loading": "加载星图数据..."
+  },
+  "status": {
+    "loadingSovereignty": "加载主权数据...",
+    "mapDatasetError": "星图数据错误",
+    "loadFailed": "加载失败"
+  },
+  "details": {
+    "military": "军",
+    "industrial": "工",
+    "strategic": "战",
+    "power": "电力",
+    "powerUnit": "电",
+    "workforce": "人力",
+    "reagents": "试剂",
+    "workforceTransport": "运输",
+    "vulnerability": "增强",
+    "theft": "盗窃",
+    "configured": "配置",
+    "current": "当前",
+    "import": "导入",
+    "export": "导出",
+    "transit": "中转",
+    "online": "在线",
+    "offline": "离线",
+    "low": "不足",
+    "pending": "等待"
+  }
+}

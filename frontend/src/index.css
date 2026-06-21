@@ -1,13 +1,5 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "MapleMono";
-  src: url("/MapleMonoNL-CN-Regular.ttf.woff2") format("woff2"),
-    local("MapleMono"), local("Maple Mono"), ui-monospace, SFMono-Regular,
-    monospace;
-  font-display: swap;
-}
-
 :root {
   --color-bg-base: #030712;
   --color-bg-card: rgb(17, 24, 39);
@@ -16,6 +8,13 @@
   --color-text-primary: #f9fafb;
   --color-text-secondary: #9ca3af;
   --color-text-muted: #6b7280;
+  --font-ui-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --font-ui-sans-cn: "Microsoft YaHei", "PingFang SC", "Noto Sans SC",
+    "Source Han Sans SC", "Segoe UI", Arial, sans-serif;
+  --font-system-name: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", "Microsoft YaHei", "PingFang SC",
+    "Noto Sans SC", "Source Han Sans SC", "Segoe UI", Arial, sans-serif;
 }
 
 * {
@@ -35,13 +34,22 @@ body,
 }
 
 body {
-  font-family: "MapleMono", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: var(--font-ui-mono);
   background-color: var(--color-bg-base);
   color: var(--color-text-primary);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html:lang(zh-CN) body,
+html:lang(zh-CN) .font-mono {
+  font-family: var(--font-ui-sans-cn) !important;
+}
+
+.system-name-text,
+html:lang(zh-CN) .system-name-text {
+  font-family: var(--font-system-name) !important;
 }
 
 /* 星图容器 */
